@@ -25,7 +25,7 @@ const initServer = async() => {
 db.sequelize.sync().then(async()=> {
   startApolloServer(app);
   const httpServer = http.createServer(app);
-  httpServer.listen(4000, () => {
+  httpServer.listen(port, () => {
     console.info(`🚀 Server ready at http://localhost:${port}/api/graphql`);
   });
 })
