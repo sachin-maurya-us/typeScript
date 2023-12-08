@@ -1,0 +1,66 @@
+directive @auth on FIELD_DEFINITION
+
+type Query {
+  myEvents: [MyEventResponse]! @auth
+  getEventWithInvitees(input: GetEventWithInviteesInput): [GetEventWithInviteesResponse] @auth
+  getInvitedEvents: [GetInvitedEventsResponse] @auth
+}
+
+type Mutation {
+  createEvent(input: EventInput!): Message! @auth
+  invite(input: InviteInput!): Message! @auth
+}
+
+input EventInput {
+  eventName: String!
+  startDate: Date! 
+  endDate: Date! 
+  place: String!
+}
+
+input InviteInput {
+  email: String!
+  eventId: String!
+}
+
+type MyEventResponse {
+  id: ID
+  eventName: String
+  startDate: Date 
+  endDate: Date 
+  place: String 
+}
+
+input GetEventWithInviteesInput {
+  eventId: ID!
+}
+
+type GetEventWithInviteesResponse {
+  id: ID
+  eventName: String
+  startDate: Date
+  endDate: Date
+  place: String
+  creator: User
+  invitees: [Invitee]
+}
+
+type Invitee {
+  id: ID
+  invited: User
+}
+
+type User {
+  id: ID
+  email: String
+  name: String
+}
+
+type GetInvitedEventsResponse {
+  id: ID
+  eventName: String
+  startDate: Date
+  endDate: Date
+  place: String
+  creator: User
+}

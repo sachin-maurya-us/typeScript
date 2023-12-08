@@ -1,0 +1,27 @@
+directive @auth on FIELD_DEFINITION
+scalar Date
+
+type Mutation {
+  userSignUp(input: UserSignUpInput!): Message
+  logIn(input: LogInInput!): LogInResponse! 
+}
+
+input UserSignUpInput {
+  name: String!
+  email: String!
+  password: String!
+}
+
+type Message {
+  message: String
+}
+
+input LogInInput {
+  email: String!
+  password: String!
+}
+
+type LogInResponse {
+  accessToken: String
+  message: String
+}
