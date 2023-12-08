@@ -57,6 +57,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
   }, {
     sequelize,
     modelName: 'Event',
+    underscored: true,
+    timestamps: true,
+    paranoid: true,
   });
 
   Event.associate = models => {

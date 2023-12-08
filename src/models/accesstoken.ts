@@ -2,13 +2,22 @@
 import {
   Model
 } from 'sequelize';
+interface AccessTokenAttributes {
+  id: string;
+  userId: string;
+  accessToken: string;
+}
 module.exports = (sequelize: any, DataTypes: any) => {
-  class AccessToken extends Model {
+  class AccessToken extends Model<AccessTokenAttributes> implements AccessTokenAttributes {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+
+    id!: string;
+    userId!: string;
+    accessToken!: string;
     static associate(models: any) {
       // define association here
     }

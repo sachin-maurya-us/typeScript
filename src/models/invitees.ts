@@ -39,6 +39,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
   }, {
     sequelize,
     modelName: 'Invitees',
+    underscored: true,
+    timestamps: true,
+    paranoid: true,
   });
 
   Invitees.associate = models => {

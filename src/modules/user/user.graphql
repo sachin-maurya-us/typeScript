@@ -2,7 +2,7 @@ directive @auth on FIELD_DEFINITION
 scalar Date
 
 type Mutation {
-  userSignUp(input: UserSignUpInput!): Message
+  userSignUp(input: UserSignUpInput!): Message!
   logIn(input: LogInInput!): LogInResponse! 
 }
 

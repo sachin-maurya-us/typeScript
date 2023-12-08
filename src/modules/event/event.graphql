@@ -2,8 +2,8 @@ directive @auth on FIELD_DEFINITION
 
 type Query {
   myEvents: [MyEventResponse]! @auth
-  getEventWithInvitees(input: GetEventWithInviteesInput): [GetEventWithInviteesResponse] @auth
-  getInvitedEvents: [GetInvitedEventsResponse] @auth
+  getEventWithInvitees(input: GetEventWithInviteesInput): [GetEventWithInviteesResponse]! @auth
+  getInvitedEvents: [GetInvitedEventsResponse]! @auth
 }
 
 type Mutation {
